@@ -3,6 +3,13 @@ session_start();
 
 if(isset ($_SESSION['session_email'])){
   //echo "el usuario ya inicio sesión";
+  $email_sesion =$_SESSION['session_email'];
+  $query_sesion= $pdo->prepare("SELECT * FROM `usuarios` WHERE email='admin@admin.com' AND estado='activo'");
+  $query_sesion->execute();
+  $datos_sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($datos_sesion_usuarios as $datos_sesion_usuario){
+     $nombre_sesion_usuario = $datos_sesion_usuario['nombres'];
+  }
 }else {
   //echo "el usuario no ha iniciado sesión";
   header('Location: ' . APP_URL . "/login");
@@ -27,7 +34,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=APP_URL?>/public/dist/css/adminlte.min.css">
     <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Iconos Bostrap 4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -109,28 +118,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="<?=APP_URL?>/public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?=$nombre_sesion_usuario?></a>
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+     
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas "><i class="bi bi-bookmarks"></i></i>
+              <p>
+                Roles 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL?>/admin/roles" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Roles</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
+
+          
+          <li class="nav-item">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -146,19 +166,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inactive Page</p>
                 </a>
               </li>
             </ul>
           </li>
+          
+
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+            <a href="<?=APP_URL?>/login/logout.php" class="nav-link" style="background-color: #eb2d14;color: black;">
+              <i class="nav-icon fas"><i class="bi bi-door-open"></i></i>
               <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
+                Cerrar Sesión
+                
               </p>
             </a>
           </li>

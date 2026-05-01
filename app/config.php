@@ -24,3 +24,5 @@ $fecha_actual = date(format: 'Y-m-d');
 $dia_actual = date(format: 'd');
 $mes_actual = date(format: 'm');    
 $ano_actual = date(format: 'Y');
+
+$estado_de_registro = "activo";
