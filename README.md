@@ -10,11 +10,11 @@ Para iniciar sesión, dirígete a: `http://localhost:8080/GestionEstudiantes/log
 *   **Contraseña:** `hashed_password`
 
 ## Avance
-N: 03
+N: 04 - 1
 -
 
 H: 0:0
 -
 
-M: 28:00
+M: 09:00
 -

@@ -52,7 +52,33 @@ include('../../app/controllers/roles/listado_de_roles.php');
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="show.php?id=<?= $id_rol;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                                                 <a href="edit.php?id=<?= $id_rol;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
-                                                <a href="delete.php?id=<?= $id_rol;?>" type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                                                <!-- <a href="delete.php?id=<?= $id_rol;?>" type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a> -->
+                                                 <form action="<?=APP_URL?>/app/controllers/roles/delete.php" method="post" id="miFormulario<?=$id_rol;?>" onclick="preguntar(event)">
+                                                    <input type="text" name="id_rol" value="<?= $id_rol;?>" hidden>
+                                                    <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px;"><i class="bi bi-trash"></i></button>
+                                                    <script>
+                                                        function preguntar(event){
+                                                        event.preventDefault();
+
+                                                        Swal.fire({
+                                                            title: "¿Estás seguro de eliminar este rol?",
+                                                            text: "No se podrá revertir esta acción",
+                                                            icon: "warning",
+                                                            showDenyButton: true,
+                                                            confirmButtonColor: "#d33",
+                                                            confirmButtonText: "Sí, eliminar",
+                                                            denyButtonColor: "#3085d6",
+                                                            denyButtonText: "No, cancelar"
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                var form = $('#miFormulario<?=$id_rol;?>');
+                                                                form.submit();
+                                                                // swal("Eliminado", "Se eliminó el rol correctamente", "success");
+                                                            }
+                                                        });
+                                                        }
+                                                    </script>
+                                                 </form>
                                             </div>
                                         </td>
 
@@ -85,6 +111,7 @@ include('../../admin/layout/parte2.php');
 include('../../layout/mensajes.php');
 ?>
 
+
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -92,13 +119,14 @@ include('../../layout/mensajes.php');
         "pageLength": 5,
         "language":{
             "empatyTable": "No hay información",
-            "info": "Mostrando _START_ a _END_ de _TOTAL_ roles",
-            "infoEmpty": "Mostrando 0 a 0 de 0 roles",
-            "infoFiltered": "(Filtrado de _MAX_ roles totales)",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Roles",
+            "infoFiltered": "(Filtrado de _MAX_ Roles totales)",
             "infoPostFix": "",
             "thousands": ",",
-            "lengthMenu": "Mostrar _MENU_ roles",
+            "lengthMenu": "Mostrar _MENU_ Roles",
             "loadingRecords": "Cargando...",
+            // "processing": "Procesando...", que fue esto ya no se considera ?
             "search": "Buscar:",
             "zeroRecords": "Sin resultados encontrados",
             "paginate": {
