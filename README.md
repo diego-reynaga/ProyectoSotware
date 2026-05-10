@@ -11,8 +11,8 @@ Para iniciar sesión, dirígete a: `http://localhost:8080/GestionEstudiantes/log
 
 ## Avance
 
-## N: 04 - 1
+## N: 05 - 1
 
 ## H: 0:0
 
-## M: 40:00
+## M: 00:00
