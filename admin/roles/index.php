@@ -73,7 +73,7 @@ include('../../app/controllers/roles/listado_de_roles.php');
                                                             if (result.isConfirmed) {
                                                                 var form = $('#miFormulario<?=$id_rol;?>');
                                                                 form.submit();
-                                                                // swal("Eliminado", "Se eliminó el rol correctamente", "success");
+                                                                // Swal.fire("Eliminado", "Se eliminó el rol correctamente", "success");
                                                             }
                                                         });
                                                         }

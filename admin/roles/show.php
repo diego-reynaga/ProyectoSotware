@@ -11,16 +11,16 @@ include('../../app/controllers/roles/datos_de_roles.php');
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <br>
     <div class="content">
-        <div class="container-fluid">
-            <div class="row" style="margin-top: 20px;">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-12">
                     <h1>Rol: <?= $nombres_rol ?? ''; ?></h1>
                 </div>
             </div>
-            <br>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="card card-outline card-info">
                         <div class="card-header">
                             <h3 class="card-title">Datos Registrados</h3>
@@ -36,9 +36,11 @@ include('../../app/controllers/roles/datos_de_roles.php');
                     </div>
                 </div>
             </div>
-        </div>
+        </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
 
 
 <?php

@@ -8,16 +8,16 @@ include('../../admin/layout/parte1.php');
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <br>
     <div class="content">
-        <div class="container-fluid">
-            <div class="row" style="margin-top: 20px;">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-12">
                     <h1>Crear Nuevo Rol</h1>
                 </div>
             </div>
-            <br>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Rol Nuevo</h3>
@@ -36,9 +36,11 @@ include('../../admin/layout/parte1.php');
                     </div>
                 </div>
             </div>
-        </div>
+        </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
 
 
 <?php

@@ -43,16 +43,16 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
 
                                     </tr>
                                 </thead>
-                                <?php
+                                <?php 
                                 $contador_usuarios = 0;
                                 foreach ($usuarios as $usuario) {
                                     $id_usuario = $usuario['id_usuario'];
                                     $contador_usuarios++;
                                     ?>
                                     <tr>
-                                        <td><center><?= $contador_usuarios; ?></center></td>
+                                        <td style="text-align: center;"><?= $contador_usuarios; ?></td>
                                         <td><?= $usuario['nombres']; ?></td>
-                                        <td><?= $usuario['rol_id']; ?></td>
+                                        <td><?= $usuario['nombres_rol']; ?></td>
                                         <td><?= $usuario['email']; ?></td>
                                         <td><?= $usuario['fyh_creacion']; ?></td>
                                         <td><?= $usuario['estado']; ?></td>
