@@ -18,6 +18,7 @@ foreach ($usuarios as $usuario) {
     $contador++;
 
 }
+// Falta realizar el cambio de  veridity
 if(($contador>0) && ($password == $password_tabla)){
     session_start();
     $_SESSION['mensaje'] = "Bienvenido al sistema";
